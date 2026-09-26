@@ -3,10 +3,14 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "forwardPorts": [4200, 9876],
+  "forwardPorts": [4200, 6006, 9876],
   "portsAttributes": {
     "4200": {
       "label": "Angular development server",
+      "onAutoForward": "openBrowser"
+    },
+    "6006": {
+      "label": "Storybook",
       "onAutoForward": "openBrowser"
     },
     "9876": {
