@@ -1,0 +1,42 @@
+{
+  "name": "Angular DevContainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [4200, 9876],
+  "portsAttributes": {
+    "4200": {
+      "label": "Angular development server",
+      "onAutoForward": "openBrowser"
+    },
+    "9876": {
+      "label": "Karma test runner",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "if [ -f package-lock.json ]; then npm ci; elif [ -f package.json ]; then npm install; else echo 'No package.json found; dependency installation was skipped. Use npx @angular/cli@latest to create or run an Angular project.'; fi",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace",
+  "containerEnv": {
+    "CHOKIDAR_USEPOLLING": "true"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "typescript.tsdk": "node_modules/typescript/lib"
+      },
+      "extensions": [
+        "angular.ng-template",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "yoavbls.pretty-ts-errors"
+      ]
+    }
+  }
+}
