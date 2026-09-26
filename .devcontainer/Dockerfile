@@ -2,8 +2,9 @@
 # Angular development environment using the latest Node.js LTS release line.
 FROM mcr.microsoft.com/devcontainers/typescript-node:24
 
-# Install additional OS packages here if the project needs them later.
-# RUN apt-get update && apt-get install -y <your-package-list>
+# Keep the system libraries required by the pinned Playwright version in the
+# development image. The matching Chromium binary is installed after npm ci.
+RUN npx --yes playwright@1.63.0 install-deps chromium
 
 WORKDIR /workspace
 

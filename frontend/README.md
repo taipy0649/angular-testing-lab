@@ -46,13 +46,23 @@ ng test
 
 ## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+The E2E tests use [Playwright](https://playwright.dev/) and follow the Page Object
+Model. Playwright starts the Angular development server automatically.
 
 ```bash
-ng e2e
+npm run test:e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+For an interactive runner or a visible browser, use:
+
+```bash
+npm run test:e2e:ui
+npm run test:e2e:headed
+```
+
+Page objects live in `e2e/pages`, while test scenarios live in `e2e/tests`.
+After a failure, screenshots, traces, and the HTML report are written to ignored
+output directories. Open the latest HTML report with `npm run test:e2e:report`.
 
 ## Additional Resources
 
