@@ -6,7 +6,15 @@
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "lint:styles": "stylelint \"src/**/*.css\"",
+    "lint:styles:fix": "stylelint \"src/**/*.css\" --fix",
+    "typecheck": "ngc -p tsconfig.app.json --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run lint:styles && npm run format:check"
   },
   "private": true,
   "packageManager": "npm@11.19.0",
@@ -24,12 +32,19 @@
     "@angular/build": "^22.2.0",
     "@angular/cli": "^22.2.0",
     "@angular/compiler-cli": "^22.2.0",
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/postcss": "^4.1.12",
+    "angular-eslint": "^22.5.0",
+    "eslint": "^10.11.0",
     "jsdom": "^30.0.0",
     "postcss": "^8.5.3",
     "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0",
     "tailwindcss": "^4.1.12",
     "typescript": "~6.0.2",
+    "typescript-eslint": "^8.70.1",
     "vitest": "^5.0.0"
   }
 }

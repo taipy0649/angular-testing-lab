@@ -1,0 +1,23 @@
+/** @type {import('stylelint').Config} */
+export default {
+  extends: ['stylelint-config-standard'],
+  rules: {
+    'import-notation': 'string',
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'apply',
+          'config',
+          'custom-variant',
+          'plugin',
+          'reference',
+          'source',
+          'theme',
+          'utility',
+          'variant',
+        ],
+      },
+    ],
+  },
+};
